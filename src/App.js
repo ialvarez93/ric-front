@@ -32,6 +32,12 @@ import StaffIcon from "@material-ui/icons/PermContactCalendar";
 
 //Contenedores
 import {
+  MedicoList,
+  MedicoEdit,
+  MedicoCreate,
+  MedicoShow,
+} from "./containers/medicos";
+import {
   PracticanteList,
   PracticanteEdit,
   PracticanteCreate,
@@ -102,9 +108,10 @@ const App = () => (
     />
     <Resource
       name="medicos"
-      list={ListGuesser}
-      edit={EditGuesser}
-      show={ShowGuesser}
+      list={MedicoList}
+      edit={MedicoEdit}
+      create={MedicoCreate}
+      show={MedicoShow}
       icon={MedicIcon}
     />
     <Resource

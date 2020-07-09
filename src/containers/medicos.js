@@ -23,7 +23,7 @@ import {
   TabbedShowLayout,
 } from "react-admin";
 
-export const PracticanteList = (props) => (
+export const MedicoList = (props) => (
   <List {...props}>
     <Datagrid rowClick="show">
       <TextField source="nombre" />
@@ -31,13 +31,13 @@ export const PracticanteList = (props) => (
       <TextField source="identidad" />
       <TextField source="genero" />
       <TextField source="categoria" />
-      <TextField source="telefono" />
-      <EmailField source="correo" />
       <DateField
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
         local="es"
       />
+      <TextField source="telefono" />
+      <EmailField source="correo" />
       <DateField label="Creación" source="created_at" local="es" />
       <DateField label="Actualización " source="updated_at" local="es" />
       <EditButton />
@@ -45,7 +45,7 @@ export const PracticanteList = (props) => (
   </List>
 );
 
-export const PracticanteEdit = (props) => (
+export const MedicoEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
       <TextInput source="nombre" />
@@ -71,7 +71,7 @@ export const PracticanteEdit = (props) => (
   </Edit>
 );
 
-export const PracticanteCreate = (props) => (
+export const MedicoCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
       <TextInput source="nombre" />
@@ -91,16 +91,16 @@ export const PracticanteCreate = (props) => (
       <DateInput
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        local="es"
+        local="es-ES"
       />
     </SimpleForm>
   </Create>
 );
 
-export const PracticanteShow = (props) => (
+export const MedicoShow = (props) => (
   <Show {...props}>
     <TabbedShowLayout>
-      <Tab label="Practicante">
+      <Tab label="Medico">
         <TextField source="nombre" />
         <TextField source="apellido" />
         <TextField source="identidad" />
