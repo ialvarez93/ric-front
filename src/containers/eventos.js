@@ -10,6 +10,8 @@ import {
   SimpleForm,
   TextInput,
   DateInput,
+  DateTimeInput,
+  SelectInput,
   Create,
   Filter,
   Show,
@@ -21,11 +23,11 @@ import RichTextInput from "ra-input-rich-text";
 export const EventoList = (props) => (
   <List {...props}>
     <Datagrid rowClick="show">
-      <DateField source="fecha" local="es" />
+      <DateField source="fecha" showTime="true" locale="es" />
       <TextField source="nombre" />
       <RichTextField source="categoria" />
-      <DateField label="Creación" source="created_at" local="es" />
-      <DateField label="Actualización " source="updated_at" local="es" />
+      <DateField label="Creación" source="created_at" locale="es" />
+      <DateField label="Actualización " source="updated_at" locale="es" />
       <EditButton />
     </Datagrid>
   </List>
@@ -34,9 +36,18 @@ export const EventoList = (props) => (
 export const EventoEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
-      <DateInput source="fecha" local="es" />
+      <DateTimeInput source="fecha" locale="es" />
       <TextInput source="nombre" />
-      <TextInput source="categoria" />
+      <SelectInput
+        source="categoria"
+        choices={[
+          { id: "Jornada", name: "Jornada" },
+          { id: "Falla", name: "Falla" },
+          { id: "Incidente", name: "Incidente" },
+          { id: "Docente", name: "Docente" },
+          { id: "Mantenimiento", name: "Mantenimiento" },
+        ]}
+      />
       <RichTextInput source="descripcion" />
     </SimpleForm>
   </Edit>
@@ -48,6 +59,16 @@ export const EventoCreate = (props) => (
       <DateInput source="fecha" />
       <TextInput source="nombre" />
       <TextInput source="categoria" />
+      <SelectInput
+        source="categoria"
+        choices={[
+          { id: "Jornada", name: "Jornada" },
+          { id: "Falla", name: "Falla" },
+          { id: "Incidente", name: "Incidente" },
+          { id: "Docente", name: "Docente" },
+          { id: "Mantenimiento", name: "Mantenimiento" },
+        ]}
+      />
       <RichTextInput source="descripcion" />
     </SimpleForm>
   </Create>
@@ -60,8 +81,8 @@ export const EventoShow = (props) => (
       <TextField source="nombre" />
       <TextField source="categoria" />
       <TextField source="descripcion" />
-      <DateField label="Creación" source="created_at" local="es" />
-      <DateField label="Actualización " source="updated_at" local="es" />
+      <DateField label="Creación" source="created_at" locale="es" />
+      <DateField label="Actualización " source="updated_at" locale="es" />
     </SimpleShowLayout>
   </Show>
 );

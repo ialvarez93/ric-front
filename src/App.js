@@ -31,6 +31,7 @@ import MedicIcon from "@material-ui/icons/LocalHospital";
 import StaffIcon from "@material-ui/icons/PermContactCalendar";
 
 //Contenedores
+import { CitaList, CitaShow, CitaEdit, CitaCreate } from "./containers/citas";
 import {
   MedicoList,
   MedicoEdit,
@@ -61,6 +62,7 @@ import {
   TratamientoCreate,
   TratamientoShow,
 } from "./containers/tratamientos";
+import { PacienteList } from "./containers/pacientes";
 
 // const i18nProvider = polyglotI18nProvider(locale => messages[locale]);
 const messages = {
@@ -86,9 +88,10 @@ const App = () => (
   >
     <Resource
       name="citas"
-      list={ListGuesser}
-      edit={EditGuesser}
-      show={ShowGuesser}
+      list={CitaList}
+      edit={CitaEdit}
+      create={CitaCreate}
+      show={CitaShow}
       icon={AppointmentIcon}
     />
     <Resource
@@ -101,7 +104,7 @@ const App = () => (
     />
     <Resource
       name="pacientes"
-      list={ListGuesser}
+      list={PacienteList}
       edit={EditGuesser}
       show={ShowGuesser}
       icon={PatientIcon}

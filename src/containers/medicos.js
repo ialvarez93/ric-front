@@ -5,6 +5,7 @@ import {
   TextField,
   DateField,
   EmailField,
+  BooleanField,
   RichTextField,
   ArrayField,
   ReferenceField,
@@ -34,12 +35,12 @@ export const MedicoList = (props) => (
       <DateField
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        local="es"
+        locale="es"
       />
       <TextField source="telefono" />
       <EmailField source="correo" />
-      <DateField label="Creación" source="created_at" local="es" />
-      <DateField label="Actualización " source="updated_at" local="es" />
+      <DateField label="Creación" source="created_at" locale="es" />
+      <DateField label="Actualización " source="updated_at" locale="es" />
       <EditButton />
     </Datagrid>
   </List>
@@ -65,7 +66,7 @@ export const MedicoEdit = (props) => (
       <DateInput
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        local="es"
+        locale="es"
       />
     </SimpleForm>
   </Edit>
@@ -91,7 +92,7 @@ export const MedicoCreate = (props) => (
       <DateInput
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        local="es-ES"
+        locale="es-ES"
       />
     </SimpleForm>
   </Create>
@@ -111,20 +112,21 @@ export const MedicoShow = (props) => (
         <DateField
           label="Fecha de nacimiento"
           source="fecha_nacimiento"
-          local="es"
+          locale="es"
         />
-        <DateField label="Creación" source="created_at" local="es" />
-        <DateField label="Actualización " source="updated_at" local="es" />
+        <DateField label="Creación" source="created_at" locale="es" />
+        <DateField label="Actualización " source="updated_at" locale="es" />
       </Tab>
       <Tab label="Citas" path="citas">
         <ReferenceManyField reference="citas" target="id" addLabel={false}>
           <Datagrid>
-            <DateField source="fecha" local="es" />
+            <DateField source="fecha" locale="es" />
+            <BooleanField source="realizada" />
             <TextField source="categoria" />
             <TextField source="descripcion" />
             <TextField source="ubicacion" />
-            <DateField label="Creación" source="created_at" local="es" />
-            <DateField label="Actualización " source="updated_at" local="es" />
+            <DateField label="Creación" source="created_at" locale="es" />
+            <DateField label="Actualización " source="updated_at" locale="es" />
             <EditButton />
           </Datagrid>
         </ReferenceManyField>

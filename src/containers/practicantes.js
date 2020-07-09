@@ -5,9 +5,11 @@ import {
   TextField,
   DateField,
   EmailField,
+  BooleanField,
   RichTextField,
   ArrayField,
   ReferenceField,
+  ReferenceArrayField,
   ReferenceManyField,
   Edit,
   EditButton,
@@ -28,7 +30,7 @@ export const PracticanteList = (props) => (
     <Datagrid rowClick="show">
       <TextField source="nombre" />
       <TextField source="apellido" />
-      <TextField source="identidad" />
+      <TextField label="Cedula" source="identidad" />
       <TextField source="genero" />
       <TextField source="categoria" />
       <TextField source="telefono" />
@@ -36,10 +38,10 @@ export const PracticanteList = (props) => (
       <DateField
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        local="es"
+        locale="es"
       />
-      <DateField label="Creación" source="created_at" local="es" />
-      <DateField label="Actualización " source="updated_at" local="es" />
+      <DateField label="Creación" source="created_at" locale="es" />
+      <DateField label="Actualización " source="updated_at" locale="es" />
       <EditButton />
     </Datagrid>
   </List>
@@ -50,7 +52,7 @@ export const PracticanteEdit = (props) => (
     <SimpleForm>
       <TextInput source="nombre" />
       <TextInput source="apellido" />
-      <TextInput lacel="Cedula" source="identidad" />
+      <TextInput label="Cedula" source="identidad" />
       <SelectInput
         source="genero"
         choices={[
@@ -65,7 +67,7 @@ export const PracticanteEdit = (props) => (
       <DateInput
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        local="es"
+        locale="es"
       />
     </SimpleForm>
   </Edit>
@@ -76,7 +78,7 @@ export const PracticanteCreate = (props) => (
     <SimpleForm>
       <TextInput source="nombre" />
       <TextInput source="apellido" />
-      <TextInput lacel="Cedula" source="identidad" />
+      <TextInput label="Cedula" source="identidad" />
       <SelectInput
         source="genero"
         choices={[
@@ -91,7 +93,7 @@ export const PracticanteCreate = (props) => (
       <DateInput
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        local="es"
+        locale="es"
       />
     </SimpleForm>
   </Create>
@@ -111,23 +113,41 @@ export const PracticanteShow = (props) => (
         <DateField
           label="Fecha de nacimiento"
           source="fecha_nacimiento"
-          local="es"
+          locale="es"
         />
-        <DateField label="Creación" source="created_at" local="es" />
-        <DateField label="Actualización " source="updated_at" local="es" />
+        <DateField label="Creación" source="created_at" locale="es" />
+        <DateField label="Actualización " source="updated_at" locale="es" />
       </Tab>
       <Tab label="Citas" path="citas">
         <ReferenceManyField reference="citas" target="id" addLabel={false}>
           <Datagrid>
-            <DateField source="fecha" local="es" />
+            <DateField source="fecha" locale="es" />
+            <BooleanField source="realizada" />
             <TextField source="categoria" />
             <TextField source="descripcion" />
             <TextField source="ubicacion" />
-            <DateField label="Creación" source="created_at" local="es" />
-            <DateField label="Actualización " source="updated_at" local="es" />
+            <DateField label="Creación" source="created_at" locale="es" />
+            <DateField label="Actualización " source="updated_at" locale="es" />
             <EditButton />
           </Datagrid>
         </ReferenceManyField>
+
+        {/* <ReferenceArrayField
+          reference="citas"
+          target="citas.id"
+          addLabel={false}
+        >
+          <Datagrid>
+            <DateField source="fecha" locale="es" />
+            <BooleanField source="realizada" />
+            <TextField source="categoria" />
+            <TextField source="descripcion" />
+            <TextField source="ubicacion" />
+            <DateField label="Creación" source="created_at" locale="es" />
+            <DateField label="Actualización " source="updated_at" locale="es" />
+            <EditButton />
+          </Datagrid>
+        </ReferenceArrayField> */}
       </Tab>
     </TabbedShowLayout>
   </Show>

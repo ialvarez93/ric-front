@@ -22,8 +22,8 @@ export const DiagnosticoList = (props) => (
     <Datagrid rowClick="show">
       <TextField source="nombre" />
       <RichTextField source="descripcion" />
-      <DateField label="Creación" source="created_at" local="es" />
-      <DateField label="Actualización " source="updated_at" local="es" />
+      <DateField label="Creación" source="created_at" locale="es" />
+      <DateField label="Actualización " source="updated_at" locale="es" />
       <EditButton />
     </Datagrid>
   </List>
@@ -51,8 +51,8 @@ export const DiagnosticoShow = (props) => (
     <SimpleShowLayout>
       <TextField source="nombre" />
       <TextField source="descripcion" />
-      <DateField label="Creación" source="created_at" local="es" />
-      <DateField label="Actualización " source="updated_at" local="es" />
+      <DateField label="Creación" source="created_at" locale="es" />
+      <DateField label="Actualización " source="updated_at" locale="es" />
     </SimpleShowLayout>
   </Show>
 );
