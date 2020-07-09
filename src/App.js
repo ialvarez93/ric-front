@@ -32,6 +32,12 @@ import StaffIcon from "@material-ui/icons/PermContactCalendar";
 
 //Contenedores
 import { PatientList } from "./containers/patients";
+import {
+  EventoList,
+  EventoEdit,
+  EventoCreate,
+  EventoShow,
+} from "./containers/eventos";
 
 // const i18nProvider = polyglotI18nProvider(locale => messages[locale]);
 const messages = {
@@ -64,9 +70,10 @@ const App = () => (
     />
     <Resource
       name="eventos"
-      list={ListGuesser}
-      edit={EditGuesser}
-      show={ShowGuesser}
+      list={EventoList}
+      edit={EventoEdit}
+      create={EventoCreate}
+      show={EventoShow}
       icon={EventIcon}
     />
     <Resource
