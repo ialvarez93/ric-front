@@ -31,13 +31,30 @@ import MedicIcon from "@material-ui/icons/LocalHospital";
 import StaffIcon from "@material-ui/icons/PermContactCalendar";
 
 //Contenedores
-import { PatientList } from "./containers/patients";
+import {
+  PracticanteList,
+  PracticanteEdit,
+  PracticanteCreate,
+  PracticanteShow,
+} from "./containers/practicantes";
 import {
   EventoList,
   EventoEdit,
   EventoCreate,
   EventoShow,
 } from "./containers/eventos";
+import {
+  DiagnosticoList,
+  DiagnosticoEdit,
+  DiagnosticoCreate,
+  DiagnosticoShow,
+} from "./containers/diagnosticos";
+import {
+  TratamientoList,
+  TratamientoEdit,
+  TratamientoCreate,
+  TratamientoShow,
+} from "./containers/tratamientos";
 
 // const i18nProvider = polyglotI18nProvider(locale => messages[locale]);
 const messages = {
@@ -92,23 +109,26 @@ const App = () => (
     />
     <Resource
       name="practicantes"
-      list={ListGuesser}
-      edit={EditGuesser}
-      show={ShowGuesser}
+      list={PracticanteList}
+      edit={PracticanteEdit}
+      create={PracticanteCreate}
+      show={PracticanteShow}
       icon={StaffIcon}
     />
     <Resource
       name="diagnosticos"
-      list={ListGuesser}
-      edit={EditGuesser}
-      show={ShowGuesser}
+      list={DiagnosticoList}
+      edit={DiagnosticoEdit}
+      create={DiagnosticoCreate}
+      show={DiagnosticoShow}
       icon={DiagnosisIcon}
     />
     <Resource
       name="tratamientos"
-      list={ListGuesser}
-      edit={EditGuesser}
-      show={ShowGuesser}
+      list={TratamientoList}
+      edit={TratamientoEdit}
+      create={TratamientoCreate}
+      show={TratamientoShow}
       icon={TreatmentIcon}
     />
   </Admin>

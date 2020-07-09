@@ -9,7 +9,6 @@ import {
   EditButton,
   SimpleForm,
   TextInput,
-  DateInput,
   Create,
   Filter,
   Show,
@@ -18,12 +17,11 @@ import {
 
 import RichTextInput from "ra-input-rich-text";
 
-export const EventoList = (props) => (
+export const DiagnosticoList = (props) => (
   <List {...props}>
     <Datagrid rowClick="show">
-      <DateField source="fecha" local="es" />
       <TextField source="nombre" />
-      <RichTextField source="categoria" />
+      <RichTextField source="descripcion" />
       <DateField label="Creación" source="created_at" local="es" />
       <DateField label="Actualización " source="updated_at" local="es" />
       <EditButton />
@@ -31,34 +29,27 @@ export const EventoList = (props) => (
   </List>
 );
 
-export const EventoEdit = (props) => (
+export const DiagnosticoEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
-      <DateInput source="fecha" local="es" />
       <TextInput source="nombre" />
-      <TextInput source="categoria" />
       <RichTextInput source="descripcion" />
     </SimpleForm>
   </Edit>
 );
-
-export const EventoCreate = (props) => (
+export const DiagnosticoCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      <DateInput source="fecha" />
       <TextInput source="nombre" />
-      <TextInput source="categoria" />
       <RichTextInput source="descripcion" />
     </SimpleForm>
   </Create>
 );
 
-export const EventoShow = (props) => (
+export const DiagnosticoShow = (props) => (
   <Show {...props}>
     <SimpleShowLayout>
-      <DateField source="fecha" />
       <TextField source="nombre" />
-      <TextField source="categoria" />
       <TextField source="descripcion" />
       <DateField label="Creación" source="created_at" local="es" />
       <DateField label="Actualización " source="updated_at" local="es" />
