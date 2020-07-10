@@ -5,7 +5,7 @@ import Logo from "../assets/logotipo.svg";
 export default () => (
   <Card>
     <CardHeader
-      title="Bienvenid@ al área de administración...."
+      title={<h2>Bienvenid@ al área de administración....</h2>}
       avatar={<img src={Logo} alt="Logo" height="250"></img>}
     />
     <CardContent>

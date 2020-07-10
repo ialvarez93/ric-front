@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Admin,
-  Resource,
-  ListGuesser,
-  EditGuesser,
-  ShowGuesser,
-} from "react-admin";
+import { Admin, Resource } from "react-admin";
 // APi Data Providers
 import simpleRestProvider from "./providers/ra-strapi-rest";
 import authProvider from "./providers/authProvider";
@@ -62,7 +56,12 @@ import {
   TratamientoCreate,
   TratamientoShow,
 } from "./containers/tratamientos";
-import { PacienteList, PacienteShow } from "./containers/pacientes";
+import {
+  PacienteList,
+  PacienteShow,
+  PacienteEdit,
+  PacienteCreate,
+} from "./containers/pacientes";
 
 // const i18nProvider = polyglotI18nProvider(locale => messages[locale]);
 const messages = {
@@ -105,8 +104,9 @@ const App = () => (
     <Resource
       name="pacientes"
       list={PacienteList}
-      edit={EditGuesser}
+      edit={PacienteEdit}
       show={PacienteShow}
+      create={PacienteCreate}
       icon={PatientIcon}
     />
     <Resource

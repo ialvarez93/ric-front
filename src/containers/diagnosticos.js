@@ -17,6 +17,25 @@ import {
 
 import RichTextInput from "ra-input-rich-text";
 
+import { downloadCSV } from "react-admin";
+import jsonExport from "jsonexport/dist";
+
+const exporter = (diagnosticos) => {
+  const diagnosticosForExport = diagnosticos.map((diagnostico) => {
+    const { ...diagnosticoForExport } = diagnostico; // omit backlinks and author
+    return diagnosticoForExport;
+  });
+  jsonExport(
+    diagnosticosForExport,
+    {
+      headers: ["id", "nombre", "descripcion"], // order fields in the export
+    },
+    (err, csv) => {
+      downloadCSV(csv, "diagnosticos"); // download as 'medicos.csv` file
+    }
+  );
+};
+
 const DiagnosticoFilter = (props) => (
   <Filter {...props}>
     <TextInput label="Buscar" source="q" alwaysOn />
@@ -24,7 +43,7 @@ const DiagnosticoFilter = (props) => (
 );
 
 export const DiagnosticoList = (props) => (
-  <List filters={<DiagnosticoFilter />} {...props}>
+  <List filters={<DiagnosticoFilter />} {...props} exporter={exporter}>
     <Datagrid rowClick="show">
       <TextField source="nombre" />
       <RichTextField source="descripcion" />

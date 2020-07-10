@@ -5,8 +5,6 @@ import {
   TextField,
   DateField,
   EmailField,
-  BooleanField,
-  ReferenceManyField,
   Edit,
   EditButton,
   SimpleForm,
@@ -17,8 +15,37 @@ import {
   Filter,
   Show,
   Tab,
-  TabbedShowLayout,
+  SimpleShowLayout,
 } from "react-admin";
+
+import { downloadCSV } from "react-admin";
+import jsonExport from "jsonexport/dist";
+
+const exporter = (practicantes) => {
+  const practicantesForExport = practicantes.map((practicante) => {
+    const { ...practicanteForExport } = practicante; // omit backlinks and author
+    return practicanteForExport;
+  });
+  jsonExport(
+    practicantesForExport,
+    {
+      headers: [
+        "id",
+        "nombre",
+        "apellido",
+        "identidad",
+        "fecha_nacimiento",
+        "genero",
+        "categoria",
+        "telefono",
+        "correo",
+      ], // order fields in the export
+    },
+    (err, csv) => {
+      downloadCSV(csv, "practicantes"); // download as 'medicos.csv` file
+    }
+  );
+};
 
 const PracticantesFilter = (props) => (
   <Filter {...props}>
@@ -27,7 +54,7 @@ const PracticantesFilter = (props) => (
 );
 
 export const PracticanteList = (props) => (
-  <List filters={<PracticantesFilter />} {...props}>
+  <List filters={<PracticantesFilter />} {...props} exporter={exporter}>
     <Datagrid rowClick="show">
       <TextField source="nombre" />
       <TextField source="apellido" />
@@ -102,7 +129,7 @@ export const PracticanteCreate = (props) => (
 
 export const PracticanteShow = (props) => (
   <Show {...props}>
-    <TabbedShowLayout>
+    <SimpleShowLayout>
       <Tab label="Practicante">
         <TextField source="nombre" />
         <TextField source="apellido" />
@@ -119,37 +146,6 @@ export const PracticanteShow = (props) => (
         <DateField label="Creación" source="created_at" locale="es" />
         <DateField label="Actualización " source="updated_at" locale="es" />
       </Tab>
-      <Tab label="Citas" path="citas">
-        <ReferenceManyField reference="citas" target="id" addLabel={false}>
-          <Datagrid>
-            <DateField source="fecha" locale="es" />
-            <BooleanField source="realizada" />
-            <TextField source="categoria" />
-            <TextField source="descripcion" />
-            <TextField source="ubicacion" />
-            <DateField label="Creación" source="created_at" locale="es" />
-            <DateField label="Actualización " source="updated_at" locale="es" />
-            <EditButton />
-          </Datagrid>
-        </ReferenceManyField>
-
-        {/* <ReferenceArrayField
-          reference="citas"
-          target="citas.id"
-          addLabel={false}
-        >
-          <Datagrid>
-            <DateField source="fecha" locale="es" />
-            <BooleanField source="realizada" />
-            <TextField source="categoria" />
-            <TextField source="descripcion" />
-            <TextField source="ubicacion" />
-            <DateField label="Creación" source="created_at" locale="es" />
-            <DateField label="Actualización " source="updated_at" locale="es" />
-            <EditButton />
-          </Datagrid>
-        </ReferenceArrayField> */}
-      </Tab>
-    </TabbedShowLayout>
+    </SimpleShowLayout>
   </Show>
 );

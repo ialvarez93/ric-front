@@ -21,6 +21,25 @@ import {
 
 import RichTextInput from "ra-input-rich-text";
 
+import { downloadCSV } from "react-admin";
+import jsonExport from "jsonexport/dist";
+
+const exporter = (eventos) => {
+  const eventosForExport = eventos.map((evento) => {
+    const { backlinks, author, ...eventoForExport } = evento; // omit backlinks and author
+    return eventoForExport;
+  });
+  jsonExport(
+    eventosForExport,
+    {
+      headers: ["id", "nombre", "descripcion", "fecha", "categoria"], // order fields in the export
+    },
+    (err, csv) => {
+      downloadCSV(csv, "eventos"); // download as 'eventos.csv` file
+    }
+  );
+};
+
 const EventFilter = (props) => (
   <Filter {...props}>
     <TextInput label="Buscar" source="q" alwaysOn />
@@ -40,7 +59,7 @@ const EventFilter = (props) => (
 );
 
 export const EventoList = (props) => (
-  <List filters={<EventFilter />} {...props}>
+  <List filters={<EventFilter />} {...props} exporter={exporter}>
     <Datagrid rowClick="show">
       <DateField source="fecha" showTime="true" locale="es" />
       <TextField source="nombre" />
