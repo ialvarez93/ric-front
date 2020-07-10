@@ -17,8 +17,14 @@ import {
 
 import RichTextInput from "ra-input-rich-text";
 
+const TratamientoFilter = (props) => (
+  <Filter {...props}>
+    <TextInput label="Buscar" source="q" alwaysOn />
+  </Filter>
+);
+
 export const TratamientoList = (props) => (
-  <List {...props}>
+  <List filters={<TratamientoFilter />} {...props}>
     <Datagrid rowClick="show">
       <TextField source="nombre" />
       <RichTextField source="descripcion" />

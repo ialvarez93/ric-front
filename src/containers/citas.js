@@ -35,8 +35,14 @@ import {
   TabbedForm,
 } from "react-admin";
 
+const CitaFilter = (props) => (
+  <Filter {...props}>
+    <TextInput label="Buscar" source="q" alwaysOn />
+  </Filter>
+);
+
 export const CitaList = (props) => (
-  <List {...props}>
+  <List filters={<CitaFilter />} {...props}>
     <Datagrid rowClick="show">
       <BooleanField source="realizada" />
       <DateField source="fecha" showTime="true" locale="es" />
@@ -45,7 +51,6 @@ export const CitaList = (props) => (
       <TextField source="ubicacion" />
       <DateField label="Creación" source="created_at" locale="es" />
       <DateField label="Actualización " source="updated_at" locale="es" />
-      <ShowButton />
       <EditButton />
     </Datagrid>
   </List>

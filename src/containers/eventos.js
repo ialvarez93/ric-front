@@ -12,6 +12,7 @@ import {
   DateInput,
   DateTimeInput,
   SelectInput,
+  ReferenceInput,
   Create,
   Filter,
   Show,
@@ -20,8 +21,26 @@ import {
 
 import RichTextInput from "ra-input-rich-text";
 
+const EventFilter = (props) => (
+  <Filter {...props}>
+    <TextInput label="Buscar" source="q" alwaysOn />
+    <ReferenceInput
+      label="Categoria"
+      source="id"
+      reference="eventos"
+      allowEmpty
+    >
+      <SelectInput optionText="categoria" />
+    </ReferenceInput>
+
+    <ReferenceInput label="fecha" source="id" reference="eventos" allowEmpty>
+      <DateInput source="fecha" locales="es-ES" />
+    </ReferenceInput>
+  </Filter>
+);
+
 export const EventoList = (props) => (
-  <List {...props}>
+  <List filters={<EventFilter />} {...props}>
     <Datagrid rowClick="show">
       <DateField source="fecha" showTime="true" locale="es" />
       <TextField source="nombre" />

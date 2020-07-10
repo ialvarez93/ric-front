@@ -6,10 +6,6 @@ import {
   DateField,
   EmailField,
   BooleanField,
-  RichTextField,
-  ArrayField,
-  ReferenceField,
-  ReferenceArrayField,
   ReferenceManyField,
   Edit,
   EditButton,
@@ -20,13 +16,18 @@ import {
   Create,
   Filter,
   Show,
-  SimpleShowLayout,
   Tab,
   TabbedShowLayout,
 } from "react-admin";
 
+const PracticantesFilter = (props) => (
+  <Filter {...props}>
+    <TextInput label="Buscar" source="q" alwaysOn />
+  </Filter>
+);
+
 export const PracticanteList = (props) => (
-  <List {...props}>
+  <List filters={<PracticantesFilter />} {...props}>
     <Datagrid rowClick="show">
       <TextField source="nombre" />
       <TextField source="apellido" />

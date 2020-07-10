@@ -62,7 +62,7 @@ import {
   TratamientoCreate,
   TratamientoShow,
 } from "./containers/tratamientos";
-import { PacienteList } from "./containers/pacientes";
+import { PacienteList, PacienteShow } from "./containers/pacientes";
 
 // const i18nProvider = polyglotI18nProvider(locale => messages[locale]);
 const messages = {
@@ -106,7 +106,7 @@ const App = () => (
       name="pacientes"
       list={PacienteList}
       edit={EditGuesser}
-      show={ShowGuesser}
+      show={PacienteShow}
       icon={PatientIcon}
     />
     <Resource
