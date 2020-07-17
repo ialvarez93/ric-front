@@ -98,7 +98,7 @@ export const PacienteList = (props) => (
       <DateField
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        locale="es"
+        locales="es-ES"
       />
       <TextField source="genero" />
       <ArrayField source="diagnosticos">
@@ -111,8 +111,8 @@ export const PacienteList = (props) => (
           <ChipField source="nombre" />
         </SingleFieldList>
       </ArrayField>
-      <DateField label="Creación" source="created_at" locale="es" />
-      <DateField label="Actualización " source="updated_at" locale="es" />
+      <DateField label="Creación" source="created_at" locales="es-ES" />
+      <DateField label="Actualización " source="updated_at" locales="es-ES" />
       <EditButton />
     </Datagrid>
   </List>
@@ -162,11 +162,11 @@ export const PacienteEdit = (props) => (
         />
         <NumberInput source="hijos" />
         <BooleanInput source="tabaco" />
-        <DateInput source="consumo_tabaco" locale="es-ES" />
+        <DateInput source="consumo_tabaco" locales="es-ES" />
         <BooleanInput source="alcohol" />
-        <DateInput source="consumo_alcohol" locale="es-ES" />
+        <DateInput source="consumo_alcohol" locales="es-ES" />
         <BooleanInput source="drogas" />
-        <DateInput source="consumo_drogas" locale="es-ES" />
+        <DateInput source="consumo_drogas" locales="es-ES" />
         <SelectInput
           source="genero_pareja"
           choices={[
@@ -250,11 +250,11 @@ export const PacienteCreate = (props) => (
         />
         <NumberInput source="hijos" />
         <BooleanInput source="tabaco" />
-        <DateInput source="consumo_tabaco" locale="es-ES" />
+        <DateInput source="consumo_tabaco" locales="es-ES" />
         <BooleanInput source="alcohol" />
-        <DateInput source="consumo_alcohol" locale="es-ES" />
+        <DateInput source="consumo_alcohol" locales="es-ES" />
         <BooleanInput source="drogas" />
-        <DateInput source="consumo_drogas" locale="es-ES" />
+        <DateInput source="consumo_drogas" locales="es-ES" />
         <SelectInput
           source="genero_pareja"
           choices={[
@@ -305,10 +305,10 @@ export const PacienteShow = (props) => (
         <TextField source="apellido" />
         <TextField label="Cedula" source="identidad" />
         <BooleanField source="extranjero" />
-        <DateField source="fecha_nacimiento" />
+        <DateField source="fecha_nacimiento" locales="es-ES" />
         <TextField source="genero" />
-        <DateField label="Creación" source="created_at" locale="es-ES" />
-        <DateField label="Actualización " source="updated_at" locale="es-ES" />
+        <DateField label="Creación" source="created_at" locales="es-ES" />
+        <DateField label="Actualización " source="updated_at" locales="es-ES" />
       </Tab>
       <Tab label="Dirección" path="direccion">
         <TextField source="estado" />

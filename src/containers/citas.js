@@ -66,12 +66,12 @@ export const CitaList = (props) => (
   <List filters={<CitaFilter />} {...props} exporter={exporter}>
     <Datagrid rowClick="show">
       <BooleanField source="realizada" />
-      <DateField source="fecha" showTime="true" locale="es" />
+      <DateField source="fecha" showTime="true" locales="es-ES" />
       <TextField source="categoria" />
       <TextField source="descripcion" />
       <TextField source="ubicacion" />
-      <DateField label="Creación" source="created_at" locale="es" />
-      <DateField label="Actualización " source="updated_at" locale="es" />
+      <DateField label="Creación" source="created_at" locales="es-ES" />
+      <DateField label="Actualización " source="updated_at" locales="es-ES" />
       <EditButton />
     </Datagrid>
   </List>
@@ -82,7 +82,7 @@ export const CitaEdit = (props) => (
     <TabbedForm>
       <FormTab label="Cita">
         <BooleanInput source="realizada" />
-        <DateTimeInput source="fecha" locale="es" />
+        <DateTimeInput source="fecha" locales="es-ES" />
         <SelectInput
           source="categoria"
           choices={[
@@ -116,9 +116,13 @@ export const CitaEdit = (props) => (
             <TextField source="categoria" />
             <TextField source="telefono" />
             <EmailField source="correo" />
-            <DateField source="fecha_nacimiento" locale="es" />
-            <DateField label="Creación" source="created_at" locale="es" />
-            <DateField label="Actualización " source="updated_at" locale="es" />
+            <DateField source="fecha_nacimiento" locales="es-ES" />
+            <DateField label="Creación" source="created_at" locales="es-ES" />
+            <DateField
+              label="Actualización "
+              source="updated_at"
+              locales="es-ES"
+            />
             <ShowButton />
             <EditButton />
           </Datagrid>
@@ -151,9 +155,13 @@ export const CitaEdit = (props) => (
                 <ChipField source="nombre" />
               </SingleFieldList>
             </ArrayField>
-            <DateField source="fecha_nacimiento" locale="es" />
-            <DateField label="Creación" source="created_at" locale="es" />
-            <DateField label="Actualización " source="updated_at" locale="es" />
+            <DateField source="fecha_nacimiento" locales="es-ES" />
+            <DateField label="Creación" source="created_at" locales="es-ES" />
+            <DateField
+              label="Actualización "
+              source="updated_at"
+              locales="es-ES"
+            />
             <ShowButton />
             <EditButton />
           </Datagrid>
@@ -180,9 +188,13 @@ export const CitaEdit = (props) => (
             <TextField source="categoria" />
             <TextField source="telefono" />
             <EmailField source="correo" />
-            <DateField source="fecha_nacimiento" locale="es" />
-            <DateField label="Creación" source="created_at" locale="es" />
-            <DateField label="Actualización " source="updated_at" locale="es" />
+            <DateField source="fecha_nacimiento" locales="es-ES" />
+            <DateField label="Creación" source="created_at" locales="es-ES" />
+            <DateField
+              label="Actualización "
+              source="updated_at"
+              locales="es-ES"
+            />
             <ShowButton />
             <EditButton />
           </Datagrid>
@@ -196,7 +208,7 @@ export const CitaCreate = (props) => (
     <TabbedForm>
       <FormTab label="Cita">
         <BooleanInput source="realizada" />
-        <DateTimeInput source="fecha" locale="es-ES" />
+        <DateTimeInput source="fecha" locales="es-ES" />
         <SelectInput
           source="categoria"
           choices={[
@@ -241,12 +253,12 @@ export const CitaShow = (props) => (
     <TabbedShowLayout>
       <Tab label="Cita">
         <BooleanField source="realizada" />
-        <DateField source="fecha" />
+        <DateField source="fecha" locales="es-ES" />
         <TextField source="categoria" />
         <TextField source="descripcion" />
         <TextField source="ubicacion" />
-        <DateField label="Creación" source="created_at" locale="es" />
-        <DateField label="Actualización " source="updated_at" locale="es" />
+        <DateField label="Creación" source="created_at" locales="es-ES" />
+        <DateField label="Actualización " source="updated_at" locales="es-ES" />
       </Tab>
       <Tab label="Medicos" path="medicos">
         <ReferenceArrayField
@@ -262,9 +274,13 @@ export const CitaShow = (props) => (
             <TextField source="categoria" />
             <TextField source="telefono" />
             <EmailField source="correo" />
-            <DateField source="fecha_nacimiento" locale="es" />
-            <DateField label="Creación" source="created_at" locale="es" />
-            <DateField label="Actualización " source="updated_at" locale="es" />
+            <DateField source="fecha_nacimiento" locales="es-ES" />
+            <DateField label="Creación" source="created_at" locales="es-ES" />
+            <DateField
+              label="Actualización "
+              source="updated_at"
+              locales="es-ES"
+            />
             <ShowButton />
             <EditButton />
           </Datagrid>
@@ -292,9 +308,13 @@ export const CitaShow = (props) => (
                 <ChipField source="nombre" />
               </SingleFieldList>
             </ArrayField>
-            <DateField source="fecha_nacimiento" locale="es" />
-            <DateField label="Creación" source="created_at" locale="es" />
-            <DateField label="Actualización " source="updated_at" locale="es" />
+            <DateField source="fecha_nacimiento" locales="es-ES" />
+            <DateField label="Creación" source="created_at" locales="es-ES" />
+            <DateField
+              label="Actualización "
+              source="updated_at"
+              locales="es-ES"
+            />
             <ShowButton />
             <EditButton />
           </Datagrid>
@@ -315,9 +335,13 @@ export const CitaShow = (props) => (
             <TextField source="categoria" />
             <TextField source="telefono" />
             <EmailField source="correo" />
-            <DateField source="fecha_nacimiento" locale="es" />
-            <DateField label="Creación" source="created_at" locale="es" />
-            <DateField label="Actualización " source="updated_at" locale="es" />
+            <DateField source="fecha_nacimiento" locales="es-ES" />
+            <DateField label="Creación" source="created_at" locales="es-ES" />
+            <DateField
+              label="Actualización "
+              source="updated_at"
+              locales="es-ES"
+            />
             <ShowButton />
             <EditButton />
           </Datagrid>

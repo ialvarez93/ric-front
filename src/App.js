@@ -1,5 +1,11 @@
 import React from "react";
-import { Admin, Resource } from "react-admin";
+import {
+  Admin,
+  Resource,
+  ListGuesser,
+  EditGuesser,
+  ShowGuesser,
+} from "react-admin";
 // APi Data Providers
 import simpleRestProvider from "./providers/ra-strapi-rest";
 import authProvider from "./providers/authProvider";
@@ -23,6 +29,8 @@ import AppointmentIcon from "@material-ui/icons/DateRange";
 import EventIcon from "@material-ui/icons/Event";
 import MedicIcon from "@material-ui/icons/LocalHospital";
 import StaffIcon from "@material-ui/icons/PermContactCalendar";
+import MedsIcon from "@material-ui/icons/LocalPharmacy";
+import PrepsIcon from "@material-ui/icons/Description";
 
 //Contenedores
 import { CitaList, CitaShow, CitaEdit, CitaCreate } from "./containers/citas";
@@ -57,32 +65,45 @@ import {
   TratamientoShow,
 } from "./containers/tratamientos";
 import {
+  MedicamentoList,
+  MedicamentoEdit,
+  MedicamentoCreate,
+  MedicamentoShow,
+} from "./containers/medicamentos";
+
+import {
+  PrescripcioneList,
+  PrescripcioneEdit,
+  PrescripcioneCreate,
+} from "./containers/prescripciones";
+
+import {
   PacienteList,
   PacienteShow,
   PacienteEdit,
   PacienteCreate,
 } from "./containers/pacientes";
 
-// const i18nProvider = polyglotI18nProvider(locale => messages[locale]);
+// const i18nProvider = polyglotI18nProvider(locales => messages[locales]);
 const messages = {
   es: {
     ...spanishMessages,
     myMessages,
   },
 };
-const i18nProvider = polyglotI18nProvider(() => spanishMessages, "es");
-const dataProvider = simpleRestProvider("http://localhost:1337");
+const i18nProvider = polyglotI18nProvider(() => spanishMessages, "es-ES");
+const dataProvider = simpleRestProvider("http://localhost:3001");
 
 const App = () => (
   <Admin
-    locale="es"
+    locales="es-ES"
     messages={messages}
     theme={theme}
     dashboard={Dashboard}
     layout={Layout}
     login={LoginPage}
     dataProvider={dataProvider}
-    authProvider={authProvider}
+    // authProvider={authProvider}
     i18nProvider={i18nProvider}
   >
     <Resource
@@ -140,6 +161,21 @@ const App = () => (
       create={TratamientoCreate}
       show={TratamientoShow}
       icon={TreatmentIcon}
+    />
+    <Resource
+      name="medicamentos"
+      list={MedicamentoList}
+      edit={MedicamentoEdit}
+      create={MedicamentoCreate}
+      show={MedicamentoShow}
+      icon={MedsIcon}
+    />
+    <Resource
+      name="prescripciones"
+      list={PrescripcioneList}
+      edit={PrescripcioneEdit}
+      create={PrescripcioneCreate}
+      icon={PrepsIcon}
     />
   </Admin>
 );

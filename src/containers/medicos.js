@@ -5,7 +5,6 @@ import {
   TextField,
   DateField,
   EmailField,
-  BooleanField,
   Edit,
   EditButton,
   SimpleForm,
@@ -15,7 +14,6 @@ import {
   Create,
   Filter,
   Show,
-  Tab,
   SimpleShowLayout,
 } from "react-admin";
 
@@ -65,12 +63,12 @@ export const MedicoList = (props) => (
       <DateField
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        locale="es"
+        locales="es-ES"
       />
       <TextField source="telefono" />
       <EmailField source="correo" />
-      <DateField label="Creación" source="created_at" locale="es" />
-      <DateField label="Actualización " source="updated_at" locale="es" />
+      <DateField label="Creación" source="created_at" locales="es-ES" />
+      <DateField label="Actualización " source="updated_at" locales="es-ES" />
       <EditButton />
     </Datagrid>
   </List>
@@ -96,7 +94,7 @@ export const MedicoEdit = (props) => (
       <DateInput
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        locale="es"
+        locales="es-ES"
       />
     </SimpleForm>
   </Edit>
@@ -122,7 +120,7 @@ export const MedicoCreate = (props) => (
       <DateInput
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        locale="es-ES"
+        locales="es-ES"
       />
     </SimpleForm>
   </Create>
@@ -141,10 +139,10 @@ export const MedicoShow = (props) => (
       <DateField
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        locale="es"
+        locales="es-ES"
       />
-      <DateField label="Creación" source="created_at" locale="es" />
-      <DateField label="Actualización " source="updated_at" locale="es" />
+      <DateField label="Creación" source="created_at" locales="es-ES" />
+      <DateField label="Actualización " source="updated_at" locales="es-ES" />
     </SimpleShowLayout>
   </Show>
 );

@@ -42,13 +42,16 @@ const TratamientoFilter = (props) => (
   </Filter>
 );
 
+const TratamientoPanel = ({ id, record, resource }) => (
+  <div dangerouslySetInnerHTML={{ __html: record.descripcion }} />
+);
+
 export const TratamientoList = (props) => (
   <List filters={<TratamientoFilter />} {...props} exporter={exporter}>
-    <Datagrid rowClick="show">
+    <Datagrid rowClick="expand" expand={<TratamientoPanel />}>
       <TextField source="nombre" />
-      <RichTextField source="descripcion" />
-      <DateField label="Creación" source="created_at" locale="es" />
-      <DateField label="Actualización " source="updated_at" locale="es" />
+      <DateField label="Creación" source="created_at" locales="es-ES" />
+      <DateField label="Actualización " source="updated_at" locales="es-ES" />
       <EditButton />
     </Datagrid>
   </List>
@@ -76,8 +79,8 @@ export const TratamientoShow = (props) => (
     <SimpleShowLayout>
       <TextField source="nombre" />
       <TextField source="descripcion" />
-      <DateField label="Creación" source="created_at" locale="es" />
-      <DateField label="Actualización " source="updated_at" locale="es" />
+      <DateField label="Creación" source="created_at" locales="es-ES" />
+      <DateField label="Actualización " source="updated_at" locales="es-ES" />
     </SimpleShowLayout>
   </Show>
 );

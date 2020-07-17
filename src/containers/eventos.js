@@ -4,7 +4,6 @@ import {
   Datagrid,
   TextField,
   DateField,
-  RichTextField,
   Edit,
   EditButton,
   SimpleForm,
@@ -52,20 +51,24 @@ const EventFilter = (props) => (
       <SelectInput optionText="categoria" />
     </ReferenceInput>
 
-    <ReferenceInput label="fecha" source="id" reference="eventos" allowEmpty>
+    <ReferenceInput label="Fecha" source="id" reference="eventos" allowEmpty>
       <DateInput source="fecha" locales="es-ES" />
     </ReferenceInput>
   </Filter>
 );
 
+const EventoPanel = ({ record }) => (
+  <div dangerouslySetInnerHTML={{ __html: record.descripcion }} />
+);
+
 export const EventoList = (props) => (
   <List filters={<EventFilter />} {...props} exporter={exporter}>
-    <Datagrid rowClick="show">
-      <DateField source="fecha" showTime="true" locale="es" />
+    <Datagrid rowClick="expand" expand={<EventoPanel />}>
+      <DateField source="fecha" showTime="true" locales="es-ES" />
       <TextField source="nombre" />
-      <RichTextField source="categoria" />
-      <DateField label="Creación" source="created_at" locale="es" />
-      <DateField label="Actualización " source="updated_at" locale="es" />
+      <TextField source="categoria" />
+      <DateField label="Creación" source="created_at" locales="es-ES" />
+      <DateField label="Actualización " source="updated_at" locales="es-ES" />
       <EditButton />
     </Datagrid>
   </List>
@@ -74,7 +77,7 @@ export const EventoList = (props) => (
 export const EventoEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
-      <DateTimeInput source="fecha" locale="es" />
+      <DateTimeInput source="fecha" locales="es-ES" />
       <TextInput source="nombre" />
       <SelectInput
         source="categoria"
@@ -115,12 +118,12 @@ export const EventoCreate = (props) => (
 export const EventoShow = (props) => (
   <Show {...props}>
     <SimpleShowLayout>
-      <DateField source="fecha" />
+      <DateField source="fecha" locales="es-ES" />
       <TextField source="nombre" />
       <TextField source="categoria" />
       <TextField source="descripcion" />
-      <DateField label="Creación" source="created_at" locale="es" />
-      <DateField label="Actualización " source="updated_at" locale="es" />
+      <DateField label="Creación" source="created_at" locales="es-ES" />
+      <DateField label="Actualización " source="updated_at" locales="es-ES" />
     </SimpleShowLayout>
   </Show>
 );

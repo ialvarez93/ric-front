@@ -66,10 +66,10 @@ export const PracticanteList = (props) => (
       <DateField
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        locale="es"
+        locales="es-ES"
       />
-      <DateField label="Creación" source="created_at" locale="es" />
-      <DateField label="Actualización " source="updated_at" locale="es" />
+      <DateField label="Creación" source="created_at" locales="es-ES" />
+      <DateField label="Actualización " source="updated_at" locales="es-ES" />
       <EditButton />
     </Datagrid>
   </List>
@@ -95,7 +95,7 @@ export const PracticanteEdit = (props) => (
       <DateInput
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        locale="es"
+        locales="es-ES"
       />
     </SimpleForm>
   </Edit>
@@ -121,7 +121,7 @@ export const PracticanteCreate = (props) => (
       <DateInput
         label="Fecha de nacimiento"
         source="fecha_nacimiento"
-        locale="es"
+        locales="es-ES"
       />
     </SimpleForm>
   </Create>
@@ -141,10 +141,10 @@ export const PracticanteShow = (props) => (
         <DateField
           label="Fecha de nacimiento"
           source="fecha_nacimiento"
-          locale="es"
+          locales="es-ES"
         />
-        <DateField label="Creación" source="created_at" locale="es" />
-        <DateField label="Actualización " source="updated_at" locale="es" />
+        <DateField label="Creación" source="created_at" locales="es-ES" />
+        <DateField label="Actualización " source="updated_at" locales="es-ES" />
       </Tab>
     </SimpleShowLayout>
   </Show>
